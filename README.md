@@ -26,10 +26,12 @@ Note that this command is not optimized, and is meant to dodge an issue in which
 # FINAL CONFIG
 Anyway, once tailwind is correctly set up in your project, some configuration adjustments are required.
 
+You can launch your project with `code .` if vs code is added to your `PATH`. Once you've opened your project follow the following instructions. 
+
 ### tailwind config
 First, go to the `tailwind.config.js` file, and make sure that the **content** section look to this : 
 ```js
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -42,6 +44,25 @@ export default {
 };
 ```
 This will ensure all your .js/.ts/.jsx/.tsx files in ./src to be able to use tailwind (and also index.html). Of course you can add what you want in `tailwind.config.js`but make sure that **content** contains at least those 2 lines. 
+
+### postcss config 
+Search a file named `postcss.config.cjs` and make sure that it's extension is `.cjs` and not `.js`. If you're in the wrong case, rename the file by changing it's extension. 
+
+Then make sure the file is like this : 
+```js
+module.exports = {
+  plugins: [
+    require('@tailwindcss/postcss')(),
+    require('autoprefixer'),
+  ],
+};
+```
+
+### final postcss verification
+Sometimes, postcss is not well installed, enter this command in your terminal (at the root of your project) : 
+```bash
+ npm install -D @tailwindcss/postcss
+```
 
 ### index css
 Next, go to the `./src/index.css` file -if it does not exist create it, and add those lines in the top of it : 
@@ -60,4 +81,7 @@ import './index.css'
 
 ---
 
-You can now advance in your project ! 
+You can now advance in your project ! To run it, type in your terminal at the root of your project : 
+```bash
+npm run dev 
+```
