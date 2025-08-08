@@ -1,6 +1,8 @@
 # Prelude
 Those folowing instructions are mainly meant to be run on a Windows powered device. Those are the 08-2025 working instructions, and can become outdated with the time. 
 
+**[MAIN INIT HERE](https://tailwindcss.com/docs/installation/using-vite)**
+
 # MAIN INIT INSTRUCTIONS 
 First, to create the project with Vite, especially a React TS project, run in your terminal (cmd) : 
 ```bash
